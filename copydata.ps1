@@ -81,14 +81,7 @@ foreach($datei in $dateien)
 }
 "$($dateien.Count) Bilder kopiert!"
 
-$abmessung = Get-ChildItem $zielorder | Add-ExtendedFileProperties -PropertyExtended "Abmessungen"| select Abmessungen
-foreach($bild in $abmessung)
-{
-$bild= "$bild"
-    if($bild -eq "@{Abmessungen=‪1920 x 1080‬}")
-    {
-        $bild            
-    }
-}
+Remove-Item | Get-ChildItem $zielorder | Add-ExtendedFileProperties -PropertyExtended "Abmessungen"| select Abmessungen
+
 
 
