@@ -81,7 +81,17 @@ foreach($datei in $dateien)
 }
 "$($dateien.Count) Bilder kopiert!"
 
-Remove-Item | Get-ChildItem $zielorder | Add-ExtendedFileProperties -PropertyExtended "Abmessungen"| select Abmessungen
-
+$abmessung = Get-ChildItem $zielorder | Add-ExtendedFileProperties -PropertyExtended "Abmessungen"
+foreach($bild in $abmessung)
+{
+    $hb = $bild | select Abmessungen
+    $path = $bild | select FullName
+    $hb= "$hb"
+    if($hb -ne "@{Abmessungen=‪1920 x 1080‬}")
+    {   
+        $path = "$path".Replace("@{FullName=","").Replace("}","")           
+        Remove-Item $path      
+    }
+}
 
 
