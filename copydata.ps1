@@ -1,4 +1,7 @@
-﻿function Add-ExtendedFileProperties
+﻿$quellordner = "C:\Users\jensb\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"
+$zielorder = "C:\Users\jensb\Pictures\Hintergrund"
+
+function Add-ExtendedFileProperties
 {
     param(
         [Parameter(Mandatory=$true,ValueFromPipeline=$True,ValueFromPipelineByPropertyName=$True)]
@@ -67,9 +70,6 @@
     }
 }
 
-$quellordner = "C:\Users\Admin\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"
-$zielorder = "C:\Users\Admin\Pictures\Hintergrund\img"
-
 if (-not (Test-Path "$zielorder")) { md "$zielorder" }
 $dateien = dir "$quellordner"
 "Kopiere $($dateien.Count) Dateien..."
@@ -80,7 +80,7 @@ foreach($datei in $dateien)
     $zieldatei   
 }
 "$($dateien.Count) Bilder kopiert!"
-
+"Lösche falsche Bilder"
 $abmessung = Get-ChildItem $zielorder | Add-ExtendedFileProperties -PropertyExtended "Abmessungen"
 foreach($bild in $abmessung)
 {
@@ -89,7 +89,8 @@ foreach($bild in $abmessung)
     $hb= "$hb"
     if($hb -ne "@{Abmessungen=‪1920 x 1080‬}")
     {   
-        $path = "$path".Replace("@{FullName=","").Replace("}","")           
+        $path = "$path".Replace("@{FullName=","").Replace("}","")
+        $path           
         Remove-Item $path      
     }
 }
