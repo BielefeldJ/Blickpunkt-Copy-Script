@@ -23,4 +23,6 @@ Hier darf nicht der Pfad des Skripts stehen! Auch bei Verwendung der PowerShell 
 
 Der Pfad zum eigentlichen Skript wird unter dem Punkt “Argumente hinzufügen (optional):” eingetragen. Der Pfad wird als command-Parameter übergeben:
 
+```
 -command "C:\Scripts\Pfad_zum_Skript.ps1"
+```
