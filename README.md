@@ -3,11 +3,15 @@ Ein Script um die Bilder vom Microsoft-Blickpunkt zu kopieren. (Sperrbildschirm 
 
 `$quellordner` und `§zielornder` anpassen.
 
-Um die ausführung von Powershell scripts zu erlauben folgenden Befehl ausführen. (In der Powershell)
+Um die Ausführung von Powershell scripts zu erlauben folgenden Befehl ausführen. (In der Powershell)
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
+Um die Ausführung generell zu erlaugen:
+```powershell
+Set-ExecutionPolicy Unrestricted
+```
 
 Via Aufgabenplanung bei jedem Anmelden ausführen.
 
