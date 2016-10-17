@@ -15,7 +15,7 @@ Set-ExecutionPolicy Unrestricted
 
 Via Aufgabenplanung bei jedem Anmelden ausführen.
 
-### Aufgabenplanung mit Powershell:
+### Infos zur Aufgabenplanung :
 
 Bei “Aktion:” wird “Programm starten” ausgewählt. Im Textfeld “Programm/Skript:” wird der Pfad zur “PowerShell.Exe” eingetragen.
 
